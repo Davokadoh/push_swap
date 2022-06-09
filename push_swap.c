@@ -6,7 +6,7 @@
 /*   By: jleroux <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:23:24 by jleroux           #+#    #+#             */
-/*   Updated: 2022/06/09 15:30:25 by jleroux          ###   ########.fr       */
+/*   Updated: 2022/06/09 16:11:55 by jleroux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	main(int argc, char *argv[])
 		return (NULL);
 	//stack_a = map(stack_a); //maps to [0,inf) continuously
 	str = sort(stack_a, argc);
+	//simplify(str); //Fuse sa+sb+ss , rr or rrr
 	ft_printf(str);
 	free(str);
 	return ;
