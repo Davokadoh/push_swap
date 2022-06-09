@@ -6,15 +6,20 @@
 /*   By: jleroux <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 14:52:35 by jleroux           #+#    #+#             */
-/*   Updated: 2022/06/09 15:30:35 by jleroux          ###   ########.fr       */
+/*   Updated: 2022/06/09 16:47:15 by jleroux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-int		*parse_input(int argc, char *argv[]);
+# include <unistd.h>
+# include <stdlib.h>
+
+int		parse_input(int *stack_a, int argc, char *argv[]);
 int		fill_stack(int *stack_a, int argc, char *argv[]);
+int		str_array_size(char *argv[]);
+int		array_size(int *stack);
 int		is_sorted(int *stack);
 char*	sort(int *stack_a, int argc);
 char*	sort3(int *stack_a, int argc);
