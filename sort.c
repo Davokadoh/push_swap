@@ -6,7 +6,7 @@
 /*   By: jleroux <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 13:03:18 by jleroux           #+#    #+#             */
-/*   Updated: 2022/06/09 16:47:13 by jleroux          ###   ########.fr       */
+/*   Updated: 2022/06/13 15:29:43 by jleroux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ int	is_sorted(int *stack)
 	int	i;
 	int	max;
 
-	i = -1;
-	max = 100;
-	while (++i < max - 1)
-		if (stack[i] > stack[i + 1])
+	i = 0;
+	while (stack[++i])
+		if (stack[i - 1] > stack[i])
 			return (0);
 	return (1);
 }
@@ -54,7 +53,7 @@ char*	sort_3(int *stack_a, char *cmds)
 	while (!is_sorted(stack_a))
 	{
 		if (stack_a[0] == stack_a[1] + 1)
-			swap(cmds, stack_a);
+			swap(cmds, stack_a, a);
 		else if (stack_a[0] == 3 && stack_a[1] == 1)
 			rot(cmds, stack_a);
 		else
@@ -82,13 +81,15 @@ char*	sort_5(int *stack_a, char *cmds)
 char*	sort(int *stack_a, int argc)
 {
 	char	*cmds;
+	int		size;
 
+	size = array_size(stack_a);
 	if (size <= 3)
 		return (sort_3(stack_a));
 	else if (size <= 5)
-		return (sort_5());
+		return (sort_5(stack_a));
 	else if (size <= 100)
-		return (sort_100());
+		return (sort_100(stack_a));
 	else 
-		return (sort_500());
+		return (sort_500(stack_a));
 }

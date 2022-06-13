@@ -6,18 +6,17 @@
 #    By: jleroux <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 15:19:47 by jleroux           #+#    #+#              #
-#    Updated: 2022/06/09 15:22:23 by jleroux          ###   ########.fr        #
+#    Updated: 2022/06/13 14:26:29 by jleroux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CFLAGS 			= -Wall -Wextra -Werror #-g -fsanitize=address -fno-omit-frame-pointer
-TARGET 			= libftprintf.a
+TARGET 			= push_swap
 SRCS_DIR 		= .
 OBJS_DIR 		= .
 LIBFT_DIR		= ./libft
 INCLUDES_DIRS	= ./includes $(LIBFT_DIR)
 INCLUDES		= $(addprefix -I,$(INCLUDES_DIRS))
-TESTS_DIR		= ./ft_printf_tester
 LIBS			= $(LIBFT_DIR)/libft.a
 _SRCS = push_swap.c \
 		sort.c
@@ -56,5 +55,5 @@ test: $(TARGET)
 	$(MAKE) -C $(TESTS_DIR)
 
 norminette:
-	-norminette $(SRCS) ft_printf.h
+	-norminette $(SRCS)
 	-norminette $(LIBFT_DIR)
