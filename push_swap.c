@@ -63,14 +63,14 @@ int	parse_input(int *stack_a, int argc, char *argv[])
 
 int	main(int argc, char *argv[])
 {
-	int		stack_a[argc];
+	int		stack_a[argc]; //Variadic array!!!!!!!!!!!!!!!! Must malloc();
 	char	*str;
 
 	if (parse_input(stack_a, argc, argv) == 1)
 		return (1);
 	//stack_a = map(stack_a); //maps to [0,inf) continuously
 	str = sort(stack_a, argc);
-	//simplify(str); //Fuse sa+sb+ss , rr or rrr
+	// simplify(str); //Fuse sa+sb=ss , rr or rrr
 	write(1, str, ft_strlen(str));
 	free(str);
 	return (0);

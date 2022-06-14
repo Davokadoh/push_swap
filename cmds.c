@@ -58,3 +58,29 @@ void	rrot(char *cmds, int *stack, char ch)
 	stack[0] = tmp;
 	add_cmd(cmds, "rr", ch);
 }
+
+void	push(int *old_src, int *old_dst)
+{
+	int	i;
+	int	len;
+	int	*new_src;
+	int	*new_dst;
+
+	i = 0;
+	len = 0;
+	while (old_src[i])
+		len++;
+	new_src = malloc((len - 1) * sizeof(int));
+	i = 0;
+	len = 0;
+	while (old_dst[i])
+		len++;
+	new_dst = malloc((len + 1) * sizeof(int));
+	new_dst[0] = old_src[0];
+	while (new_dst[i + 1] && old_dst[i])
+		new_dst[i + 1] == old_dst[i];
+	while (new_src[i] && old_src[i + 1])
+		new_src[i] = old_src[i + 1];
+	free_array(old_src);
+	free_array(old_dst);
+}
