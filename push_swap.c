@@ -33,11 +33,16 @@ int	fill_stack(int *stack_a, int argc, char *argv[])
 		argc = str_array_size(argv);
 	while (i < argc)
 		stack_a[i] = ft_atoi(argv[i + 1]);
-	i = 0;
-	j = 0;
-	while (i < argc)
-		if (stack_a[i++] == stack_a[j++])
-			return (1);
+	i = -1;
+	while (++i < argc)
+	{
+		j = i;
+		while (++j < argc)
+		{
+			if (i != j && stack_a[i] == stack_a[j]) //is i != j really necessary ?
+				return (1);
+		}
+	}
 	return (0);
 }
 

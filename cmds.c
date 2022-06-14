@@ -23,6 +23,8 @@ void	add_cmd(char *cmds, char *cmd, char ch)
 
 void	swap(char *cmds, int *stack, char ch)
 {
+	int	tmp;
+
 	tmp = stack[0];
 	stack[0] = stack[1];
 	stack[1] = tmp;
@@ -45,11 +47,12 @@ void	rot(char *cmds, int *stack, char ch)
 void	rrot(char *cmds, int *stack, char ch)
 {
 	int	i;
+	int	tmp;
 
 	i = 0;
 	while (stack[i])
 		i++;
-	tmp = stack[i];
+	tmp = stack[--i];
 	while (--i > 0)
 		stack[i + 1] = stack[i];
 	stack[0] = tmp;
