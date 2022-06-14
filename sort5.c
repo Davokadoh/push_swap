@@ -1,5 +1,7 @@
 char*	sort_5(int *stack_a, char *cmds)
 {
+    int *stack_b;
+    
 	if (!is_sorted(stack_a))
 	{
 		push(cmds, stack_a, stack_b);

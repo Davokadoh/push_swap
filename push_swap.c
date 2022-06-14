@@ -28,10 +28,11 @@ int	fill_stack(int *stack_a, int argc, char *argv[])
 	int	i;
 	int	j;
 
-	i = 0;
+	i = -1;
 	if (argc == -1)
 		argc = str_array_size(argv);
-	while (i < argc)
+	stack_a = calloc((argc + 1)); // Unsure about the +1
+	while (++i < argc)
 		stack_a[i] = ft_atoi(argv[i + 1]);
 	i = -1;
 	while (++i < argc)
@@ -63,15 +64,17 @@ int	parse_input(int *stack_a, int argc, char *argv[])
 
 int	main(int argc, char *argv[])
 {
-	int		stack_a[argc]; //Variadic array!!!!!!!!!!!!!!!! Must malloc();
-	char	*str;
+	int		stack_a[];
+	char	*cmds;
 
 	if (parse_input(stack_a, argc, argv) == 1)
 		return (1);
 	//stack_a = map(stack_a); //maps to [0,inf) continuously
-	str = sort(stack_a, argc);
-	// simplify(str); //Fuse sa+sb=ss , rr or rrr
-	write(1, str, ft_strlen(str));
-	free(str);
+	cmds = sort(stack_a, argc);
+	free(stack_a);
+	free(stack_b);
+	// simplify(cmds); //Fuse sa+sb=ss , ra+rb=rr or rra+rrb=rrr
+	write(1, cmds, ft_strlen(cmds));
+	free(cmds);
 	return (0);
 }

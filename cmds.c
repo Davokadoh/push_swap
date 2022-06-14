@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   cmds.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jleroux <marvin@42lausanne.ch>             +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/13 15:25:44 by jleroux           #+#    #+#             */
-/*   Updated: 2022/06/13 15:36:24 by jleroux          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 #include "libft.h"
 
@@ -59,28 +47,29 @@ void	rrot(char *cmds, int *stack, char ch)
 	add_cmd(cmds, "rr", ch);
 }
 
-void	push(int *old_src, int *old_dst)
+void	push(int *src, int *dst, char ch)
 {
 	int	i;
-	int	len;
-	int	*new_src;
-	int	*new_dst;
+	int	tmp;
 
-	i = 0;
-	len = 0;
-	while (old_src[i])
-		len++;
-	new_src = malloc((len - 1) * sizeof(int));
-	i = 0;
-	len = 0;
-	while (old_dst[i])
-		len++;
-	new_dst = malloc((len + 1) * sizeof(int));
-	new_dst[0] = old_src[0];
-	while (new_dst[i + 1] && old_dst[i])
-		new_dst[i + 1] == old_dst[i];
-	while (new_src[i] && old_src[i + 1])
-		new_src[i] = old_src[i + 1];
-	free_array(old_src);
-	free_array(old_dst);
+	if (!*src)
+		return (NULL);
+	i = -1;
+	while (dst[++i])
+		;
+	while (i > 0)
+	{
+		dst[i] == dst[i - 1];
+		i--;
+	}
+	dst[0] = src[0];
+	while (src[i + 1])
+		src[i] = src[i + 1];
+	src[i] = NULL;
+
+
+
+
+
+	add_cmd(cmds, "p", ch);
 }
